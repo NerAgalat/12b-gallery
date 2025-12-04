@@ -1147,7 +1147,7 @@ const artdata = {
         ref: "Art has always been something I enjoyed doing. Because of this, I decided to bring it to life using stop motion in hopes that maybe someone else can get inspired too." 
     },
     { 
-        img: "assets/videos/StopMotion/Soliman.mov", 
+        img: "assets/videos/StopMotion/Soliman.mp4", 
         name: "Satisfied cravings", 
         desc: "Listen to your cravings! Grab a combo now!", 
         type: "Artwork Type: Stop‑Motion", 
@@ -1175,4 +1175,5 @@ const artdata = {
         ref: "I showcased how dog treats are used to reinforce your pet's training, or just a simple treat for them. We want our pets to feel at home, so I made the editing cozy-like to give off that atmosphere." 
     }
   ]
+
 };
