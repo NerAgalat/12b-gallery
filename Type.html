@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Options.css">
+    <script src="js/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="blur-effect"></div>
+
+    <div class="content"> 
+        <div class="title-container">
+            <h1> SELECT PROJECT </h1>
+        </div>
+
+        <div class="main-container">
+            <a href="Options.html" class="type" data-type="coffee">
+                <div> 
+                    <img src="assets/imgs/Coffee/coffee_logo.jpg" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Coffee Painting </h2>
+                        <p class="refselect"> This section showcases all ICTCP-12B's coffee paintings for HUMS110. </p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="filipino">
+                <div> 
+                    <img src="assets/imgs/Filipino/historical_sample.jfif" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Painted by History </h2>
+                        <p class="refselect"> This section showcases all ICTCP-12B's historical illustrations for HUMS110. </p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="painting">
+                <div> 
+                    <img src="assets/imgs/Paintings/jose-rizal_sample.jpg" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Filipino Culture </h2>
+                        <p class="refselect"> This section showcases all ICTCP-12B's grouped historical paintings for HUMS110. </p>
+                    </div>
+                </div>
+            </a>
+            <a href="photography.html">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Photography </h2>
+                        <p class="refselect"> This section showcases all ICTCP-12B's grouped photography for HUMS110. Furthermore, This
+                            features numerous artistic and photographical themes. </p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="stop_motion">
+                <div> 
+                    <img src="assets/imgs/StopMotion/animation_sample.avif" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Stop-Motion Animations </h2>
+                        <p class="refselect"> This section showcases all ICTCP-12B's stop motion videos for HUMS110. </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    <br>
+        <div class="mc-button" onclick="location.href='index.html'">
+                <div class="title">Back</div>
+            </div>
+    <br>
+        </div>
+    <script>
+        
+        const style = document.createElement("style");
+        style.textContent = `
+            a {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+            a:visited, a:focus, a:active, a:hover {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+        `;
+        document.head.appendChild(style); 
+
+        document.querySelectorAll('.type').forEach(type => {
+            type.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedType = type.dataset.type;
+                const artworkType = type.dataset.arty;
+                // Store the selected type in localStorage
+                localStorage.setItem('selectedType', selectedType);
+                window.location.href = 'Options.html';
+            });
+        });
+    </script>
+</body>
+</html>

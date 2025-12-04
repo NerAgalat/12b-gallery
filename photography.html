@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Options.css">
+    <script src="js/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="blur-effect"></div>
+
+    <div class="content"> 
+        <div class="title-container">
+            <h1> SELECT PROJECT </h1>
+        </div>
+
+        <div class="main-container">
+            <a href="Options.html" class="type" data-type="photography_one">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 1 </h2>
+                        <p class="refselect">Arionday</p>
+                        <p class="refselect">Brofas</p>
+                        <p class="refselect">Hizon</p>
+                        <p class="refselect">Capioso</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_two">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 2 </h2>
+                        <p class="refselect">Herrera</p>
+                        <p class="refselect">Collantes</p>
+                        <p class="refselect">Atacador</p>
+                        <p class="refselect">Corpuz</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_three">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 3 </h2>
+                        <p class="refselect">Carmona</p>
+                        <p class="refselect">Mondidu</p>
+                        <p class="refselect">Guasa</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_four">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 4 </h2>
+                        <p class="refselect">Coprada</p>
+                        <p class="refselect">Reyes N.</p>
+                        <p class="refselect">Tuazon</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_five">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 5 </h2>
+                        <p class="refselect">Dacuya</p>
+                        <p class="refselect">Tagala</p>
+                        <p class="refselect">Tiu</p>
+                        <p class="refselect">Tolod</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_six">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 6 </h2>
+                        <p class="refselect">Reyes R.</p>
+                        <p class="refselect">Delos Reyes</p>
+                        <p class="refselect">Lacorte</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_seven">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 7 </h2>
+                        <p class="refselect">Mojares</p>
+                        <p class="refselect">Salazar</p>
+                        <p class="refselect">Umalay</p>
+                    </div>
+                </div>
+            </a>
+            <a href="Options.html" class="type" data-type="photography_eight">
+                <div> 
+                    <img src="assets/imgs/Photography/city-image_sample.webp" class="select"> 
+                    <div class="project-content">
+                        <h2 class="nameselect"> Group 8 </h2>
+                        <p class="refselect">Soliman</p>
+                        <p class="refselect">Villasin</p>
+                        <p class="refselect">Yam</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <br>
+        <div class="mc-button" onclick="location.href='type.html'">
+                <div class="title">Back</div>
+            </div>
+    <br>
+        </div>
+    </div>
+    <script>
+        
+        const style = document.createElement("style");
+        style.textContent = `
+            a {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+            a:visited, a:focus, a:active, a:hover {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+        `;
+        document.head.appendChild(style); 
+
+        document.querySelectorAll('.type').forEach(type => {
+            type.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedType = type.dataset.type;
+                const artworkType = type.dataset.arty;
+                // Store the selected type in localStorage
+                localStorage.setItem('selectedType', selectedType);
+                window.location.href = 'Photoopt.html';
+            });
+        });
+    </script>
+</body>
+</html>

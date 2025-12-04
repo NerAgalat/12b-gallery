@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/arts.css" />
+    <script src="js/main.js" de></script>
+</head>
+<body>
+
+    <div class="content">
+        <div class="main-container">
+            <nav> 
+                <a href="javascript:history.go(-1)"> <b> < </b> </a>
+                <h2> ARTWORK </h2> 
+            </nav>
+            <div class="content-container">
+                <div class="artwork-container">
+                    <video controls class="art" id="video">
+                    <div class="title-border"> <a id="names" class="wrap"></a> </div>
+                </div>
+                <div class="information-container">
+                    <div class="title-border"> <a id="arttype"></a> </div>
+                    <br>
+                    <div class="description">
+                        <h2> Description </h2>
+                        <p id="descs"></p>
+                    </div>
+                    <br> <br>
+                    <div class="reflection">
+                        <h2> Reflection </h2>
+                        <p id="reflection"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const selectedArtType = localStorage.getItem("selectedArtType");
+            const selectedArtIndexStr = localStorage.getItem("selectedArtIndex");
+            const artworkType = localStorage.getItem("artworkType");
+            if (!selectedArtType || selectedArtIndexStr === null) return;
+
+            const selectedArtIndex = parseInt(selectedArtIndexStr, 10);
+
+            const art = artdata[selectedArtType][selectedArtIndex];
+            if (!art) return;
+            
+            document.getElementById("video").src = art.img;
+            document.getElementById("names").innerText = (art.name) ? art.name : "Unknown";
+            document.getElementById("reflection").innerText = (art.ref) ? art.ref : "N/A";
+            document.getElementById("descs").innerText = (art.desc) ? art.desc : "N/A";
+            document.getElementById("arttype").innerText = art.type;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Options.css">
+    <script src="js/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="blur-effect"></div>
+
+    <div class="content"> 
+        <div class="title-container">
+            <h1> SELECT PROJECT </h1>
+        </div>
+
+        <div class="main-container">
+
+        </div>
+
+        <br>
+        <div class="mc-button" onclick="location.href='type.html'">
+                <div class="title">Back</div>
+            </div>
+    <br>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const style = document.createElement("style");
+            style.textContent = `
+                a {
+                    text-decoration: none !important;
+                    color: inherit !important;
+                }
+                a:visited, a:focus, a:active, a:hover {
+                    text-decoration: none !important;
+                    color: inherit !important;
+                }
+                
+                video {
+                    box-sizing: border-box;
+                    height: 200px;
+                    width: 200px;
+                    padding: 20px;
+                    margin-left: 5px;
+
+                    background-color: rgba(255, 255, 255, 0.085);
+                    flex: 0 0 auto;
+                }
+            `;
+            document.head.appendChild(style);
+
+            const selectedType = localStorage.getItem("selectedType");
+            if (!selectedType || !artdata[selectedType]) return;
+
+            const mainContainer = document.querySelector(".main-container");
+            mainContainer.innerHTML = "";
+
+            const artworkType = localStorage.getItem("artworkType");
+
+            artdata[selectedType].forEach((art, index) => {
+                const artLink = document.createElement("a");
+                artLink.href = "Projects.html";
+                artLink.className = "project";
+                artLink.dataset.index = index;
+
+                const imgSrc = art.img.toLowerCase().endsWith(".mp4") || art.img.toLowerCase().endsWith(".mov");
+
+                if (imgSrc) {
+                artLink.innerHTML = `
+                    <div>
+                    <video class="select" src="${art.img}" preload="metadata" muted playsinline></video>
+                    <div class="project-content">
+                        <h2 class="nameselect">${art.name || "Unknown"}</h2>
+                        <p class="refselect">${art.desc || "N/A"}</p>
+                    </div>
+                    </div>
+                `;
+                } else {
+                artLink.innerHTML = `
+                    <div>
+                    <img src="${art.img}" class="select">
+                    <div class="project-content">
+                        <h2 class="nameselect">${art.name || "Unknown"}</h2>
+                        <p class="refselect">${art.desc || "N/A"}</p>
+                    </div>
+                    </div>
+                `;
+                }
+
+                artLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    localStorage.setItem("selectedArtType", selectedType);
+                    localStorage.setItem("selectedArtIndex", index);
+
+                    if (selectedType === "stop_motion") {
+                        window.location.href = "Projects_StopMotion.html";
+                    } else {
+                        window.location.href = "Projects.html";
+                    }
+                });
+
+                mainContainer.appendChild(artLink);
+            });
+        });
+    </script>
+</body>
+</html>
