@@ -32,6 +32,11 @@
                         <h2> Reflection </h2>
                         <p id="reflection"></p>
                     </div>
+                    <br> <br>
+                    <div class="artists">
+                        <h2> Artist/s </h2>
+                        <p id="artists"></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,6 +58,7 @@
             document.getElementById("reflection").innerText = (art.ref) ? art.ref : "N/A";
             document.getElementById("descs").innerText = (art.desc) ? art.desc : "N/A";
             document.getElementById("arttype").innerText = art.type;
+            document.getElementById("artists").innerText = (art.artists) ? art.artists : "Unknown";
         });
     </script>
 </body>
